@@ -9,15 +9,21 @@
 
 library(stats)
 
-arr <- array(0,10)
-for (i in 1:10){
-  arr[i] <- if (runif(1) < 0.1) 1 else 0
+n_flips=30
+outcomes <- array(0,n_flips)
+prob_heads=0.1
+for (i in 1:n_flips){
+  outcomes[i] <- if (runif(1) < prob_heads) 1 
+  else 0
 }
 
-for (j in 1:100){
-  arr <- array(0,10)
-  for (i in 1:10){
-    arr[i] <- if (runif(1) < 0.1) 1 else 0
+n_trials=100
+for (j in 1:n_trials){
+  outcomes <- array(0,n_flips)
+  for (i in 1:n_flips){
+    outcomes[i] <- if (runif(1) < prob_heads) 1 
+    else 0
   }
-  print(arr)
+  print(outcomes)
 }
+
